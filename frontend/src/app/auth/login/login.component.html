@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="back-on-main">
+    <button class="btn" routerLink="/" routerLinkActive="active">Назад</button>
+  </div>
+  <div class="auth-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <!-- Поле Email / Телефон -->
+      <div class="form-group">
+        <label for="emailOrPhone">Email или телефон</label>
+        <input type="text" id="emailOrPhone" formControlName="emailOrPhone" placeholder="Введите email или телефон" />
+        <div class="error" *ngIf="loginForm.get('emailOrPhone')?.invalid && loginForm.get('emailOrPhone')?.touched">
+          Введите корректный email или номер телефона
+        </div>
+      </div>
+
+      <!-- Поле Пароль -->
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" formControlName="password" placeholder="Введите пароль" />
+        <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Пароль должен содержать минимум 4 символа
+        </div>
+      </div>
+
+      <!-- Кнопка -->
+      <button type="submit" class="btn-submit" [disabled]="loginForm.invalid">Войти</button>
+    </form>
+  </div>
+</div>

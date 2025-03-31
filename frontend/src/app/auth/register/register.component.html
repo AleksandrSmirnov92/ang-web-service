@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="back-on-main">
+    <button class="btn" routerLink="/" routerLinkActive="active">Назад</button>
+  </div>
+  <div class="register-container">
+    <form [formGroup]="registerForm" class="register-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <!-- Поле Имя -->
+        <label for="userName">Имя</label>
+        <input type="text" id="userName" formControlName="userName" placeholder="Введите имя" />
+        <!-- Поле Фамилия -->
+        <label for="userSurname">Фамилия</label>
+        <input type="text" id="userSurname" formControlName="userSurname" placeholder="Введите фамилию" />
+        <!-- Поле Email -->
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" placeholder="Введите email" />
+        <div class="error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          Введите корректный email
+        </div>
+        <!-- Поле Пароль -->
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" formControlName="password" placeholder="Введите пароль" />
+          <div class="error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            Пароль должен содержать минимум 4 символа
+          </div>
+        </div>
+
+        <!-- Поле повторить пароль -->
+        <div class="form-group">
+          <label for="repeatPassword">Повторите Пароль</label>
+          <input type="password" id="repeatPassword" formControlName="repeatPassword" placeholder="Повторите пароль" />
+          <div
+            class="error"
+            *ngIf="
+              (registerForm.get('repeatPassword')?.errors || registerForm.hasError('notEqual')) &&
+              registerForm.get('repeatPassword')?.touched
+            "
+          >
+            <span *ngIf="registerForm.get('repeatPassword')?.errors?.['minlength']">
+              Пароль должен содержать минимум 4 символа
+            </span>
+            <span *ngIf="registerForm.hasError('notEqual')"> Пароли не совпадают </span>
+          </div>
+        </div>
+      </div>
+      <!-- Кнопка -->
+      <button type="submit" class="btn-submit" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>

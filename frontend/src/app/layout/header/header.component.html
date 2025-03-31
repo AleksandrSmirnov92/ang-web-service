@@ -1,0 +1,23 @@
+<div class="header-container">
+  <div class="header__logo">Logo</div>
+  <div class="header__auth">
+    <button
+      routerLink="/login"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      class="header__auth-btn"
+      (click)="onClickLogin()"
+    >
+      <span>Войти</span>
+    </button>
+    <button
+      class="header__auth-btn"
+      routerLink="/register"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      (click)="onClickRegister()"
+    >
+      <span>Зарегистрироваться</span>
+    </button>
+  </div>
+</div>

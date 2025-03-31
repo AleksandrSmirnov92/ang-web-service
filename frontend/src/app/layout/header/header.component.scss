@@ -1,0 +1,42 @@
+$bg-button-color: white;
+$error-color: #dc3545;
+$padding: 12px;
+$text-color: black;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  border-bottom: 1px solid black;
+  .header__logo {
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+  .header__auth {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    background-color: azure;
+    padding: 5px;
+
+    .header__auth-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $bg-button-color;
+      padding: $padding;
+      color: $text-color;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: dark($bg-button-color, 10%);
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
