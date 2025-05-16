@@ -1,5 +1,23 @@
-.idea
-.vs
-bin
-obj
+# Rider и Visual Studio
+.idea/
+.vs/
+*.sln.iml
 *.sln.DotSettings.user
+*.user
+*.suo
+
+# MacOS / VSCode / системные
+.vscode/
+*.DS_Store
+
+# Папки сборки
+bin/
+obj/
+TestResults/
+
+# Логи
+*.log
+
+# Секреты (если есть)
+appsettings.Development.json
+secrets.json
