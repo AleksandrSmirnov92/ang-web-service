@@ -21,3 +21,4 @@ TestResults/
 # Секреты (если есть)
 appsettings.Development.json
 secrets.json
+.DS_Store
